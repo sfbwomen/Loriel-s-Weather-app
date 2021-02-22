@@ -1,1 +1,1 @@
-# Loriel-s-Weather-app
+# Loriels-Weather-app
