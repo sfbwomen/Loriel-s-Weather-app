@@ -9,6 +9,7 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
     <link href="src/styles.css" />
     <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/ae44f4bebd.js" crossorigin="anonymous"></script>
 </head>
 
@@ -19,90 +20,44 @@
             <form id="search-form">
                 <div class="row">
                     <div class="col-10">
-                        <input type="search" placeholder="Enter your city..." autocomplete="off" class="form-control"
-                            autofocus="on" id="selected-city" />
+                        <input 
+                        type="search" 
+                        placeholder="Enter your city..." 
+                        autocomplete="off" 
+                        class="form-control"
+                        autofocus="on" 
+                        id="selected-city"
+                         />
                     </div>
                     <div class="col-2">
-                        <input type="submit" value="Search" class="form-controlx" />
+                        <input 
+                        type="submit" 
+                        value="Search" 
+                        class="f" class="btn btn-primary"/>
                     </div>
                 </div>
             </form>
 
             <div class="card-body">
-                <h3 class="card-title" id="cardTitle">
-                    <strong> New York </strong>
+                <h3 class="card-title" 
+                id="appcity">   
                 </h3>
                 <p class="card-text">
-                    Monday 5:17 AM
-                    <br>
-                    Partly Cloudy
+                  <h2 id="appdate"> </h2>
+
+                    <span id="appconditions"></span>
                 </p>
                 <h4></h4>
                 <br>
-                <a href="#" class="btn btn-primary">Current City</a>
-                <br>
-                <br>
                 <h1>
-                    <i class="fas fa-cloud-sun"></i> 77&deg;
+                    <i class="fas fa-cloud-sun"></i> <strong id="apptemperature"></strong>
+                    <span class="units"><a href="#">&deg;C</a></span>
                 </h1>
 
-                <h2 id="date"></h2>
-                <br>
-                <br>
-                <br>
+                
+    
 
-                <div class="row">
-                    <div class="col-2">
-                        27&deg;
-                    </div>
-                    <div class="col-2">
-                        17&deg;
-                    </div>
-                    <div class="col-3""> 
-                  17&deg; 
-            </div>
-            <div class=" col-3">
-                        17&deg;
-                    </div>
-                    <div class="col-2">
-                        17&deg;
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-2">
-                        <i class="fas fa-cloud-sun"></i>
-                    </div>
-                    <div class="col-2">
-                        <i class="fas fa-cloud-showers-heavy"></i>
-                    </div>
-                    <div class="col-3""> 
-                  <i class=" fas fa-cloud-showers-heavy"></i>
-                    </div>
-                    <div class="col-3">
-                        <i class="fas fa-cloud-showers-heavy"></i>
-                    </div>
-                    <div class="col-2">
-                        <i class="fas fa-cloud-showers-heavy"></i>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-2">
-                        Monday
-                    </div>
-                    <div class="col-2">
-                        Tuesday
-                    </div>
-                    <div class="col-3"> Wednesday
-          </div>
-          <div class=" col-3">
-                        Thursday
-                    </div>
-                    <div class="col-2">
-                        Friday
-                    </div>
-                </div>
+               
             </div>
     
         </div>

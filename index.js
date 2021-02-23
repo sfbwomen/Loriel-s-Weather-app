@@ -1,49 +1,15 @@
-let weather = {
-  paris: {
-    temp: 19.7,
-    humidity: 80
-  },
-  tokyo: {
-    temp: 17.3,
-    humidity: 50
-  },
-  lisbon: {
-    temp: 30.2,
-    humidity: 20
-  },
-  "san francisco": {
-    temp: 20.9,
-    humidity: 100
-  },
-  moscow: {
-    temp: -5,
-    humidity: 20
-  }
+function formatDate(timestamp){
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
 }
 
-let city = prompt("Enter a city");
-if (city === "Paris") {
-  alert("It is currently 19°C (66°F) in Paris with a humidity of 80%");
-} else {
-  alert(
-    "Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+sydney"
-  );
+    let minutes =date.getMinutes();
+      if (minutes < 10) {
+  minutes = `0${minutes}`;
 }
 
-let dateElement = document.querySelector("#date");
-let now = new Date();
-let day = now.getDay();
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0$hours}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0$hours}`;
-}
-if (hours < 10) {
-  hours = `0$hours}`;
-}
 let days = [
   "Sunday",
   "Monday",
@@ -52,18 +18,39 @@ let days = [
   "Thursday",
   "Friday",
   "Saturday"
-]
+];
 
-dateElement.innerHTML = `${days[day]} ${hours}:${minutes}`;
-
-function search(event) {
-  event.preventDefault();
-  let changeCityElement = document.querySelector("#cardTitle");
-  let cityInput = document.querySelector("#selected-city");
-  changeCityElement.innerHTML = cityInput.value;
+    let day = days[date.getDay()];
+    return `${day} ${hours}:${minutes}`;
 }
 
-let selectCity = document.querySelector("#search-form");
-selectCity.addEventListener("submit", search);
+function displayTemperature (response){
+    let cityElement= document.querySelector ("#appcity");
+    let appTemp = document.querySelector("#apptemperature");
+    let descriptionElement = document.querySelector("#appconditions");
+    let dateElement = document.querySelector("#appdate")
+   
+    cityElement.innerHTML = response.data.name;
+    appTemp.innerHTML = Math.round (response.data.main.temp);
+     descriptionElement.innerHTML = response.data.weather[0].description;
+     dateElement.innerHTML = formatDate(response.data.dt*1000);
+ }
+ 
+ function search(city){
+     let apiKey= "83f6f56a2d2802039025e27f9364729e";
+     let apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+     axios.get(apiUrl).then(displayTemperature);
 
-let searchInput = document.querySelector("#search-text-input");
+ }
+
+function handleSubmit (event){
+    event.preventDefault();
+    let selectedCityElement = document.querySelector ("#selected-city");
+    search (selectedCityElement.value);
+}
+
+search("New York");
+
+ 
+ let form = document.querySelector("#search-form");
+ form.addEventListener("submit", handleSubmit);
