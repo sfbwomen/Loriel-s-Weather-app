@@ -1,0 +1,25 @@
+body {
+  border: thick;
+  background: #330867;
+  margin: 40px;
+  padding: 40px;
+  color: white;
+}
+
+.form-control {
+  position: relative;
+  top: 10px;
+  background: #30cfd0;
+  color: #330867;
+}
+.form-controlx {
+  display: block;
+  font-weight: 400px;
+  margin-top: 15px;
+}
+.row {
+  text-align: center;
+}
+.card {
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
